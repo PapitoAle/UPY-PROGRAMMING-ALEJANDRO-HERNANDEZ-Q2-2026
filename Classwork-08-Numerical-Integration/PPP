@@ -1,1 +1,19 @@
+#INPUT
+GET a, b, f_x from, method from user
 
+#PROCESS
+n <- 1000
+h <- (b - a) / n
+area <- 0.0 
+shift <- 0
+
+#METHODS
+IF method is equal "RRM" DO
+    shift <- 1
+FOR i in RANGE (0 + shift, n + shiift) DO
+    xi <- a + i * h
+    area <- area + h * f_x(xi) #PYTHON
+ENDFOR
+
+#OUTPUT
+DISPLAY "The integration of " + f_x + " is " + area
