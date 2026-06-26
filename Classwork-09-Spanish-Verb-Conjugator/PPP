@@ -1,1 +1,26 @@
+    INPUT
+    Display "Enter the verb: "
+    Read verb
 
+    PROCESS
+    Store all pronouns
+    pronouns ← ["I", "You", "He/She", "We", "You (plural)", "They"]
+
+    Store the conjugation endings
+    endings["ar"] ← ["o", "as", "a", "amos", "áis", "an"]
+    endings["er"] ← ["o", "es", "e", "emos", "éis", "en"]
+    endings["ir"] ← ["o", "es", "e", "imos", "ís", "en"]
+
+    Get the verb stem
+    stem ← verb without the last two characters
+    Get the verb ending
+    verbEnding ← last two characters of verb
+    Select the correct list of endings
+    endingsList ← endings[verbEnding]
+
+    OUTPUT
+    FOR index ← 0 TO 5
+        termination ← endingsList[index]
+        Display pronouns[index] + " " + stem + termination
+    END FOR
+END
