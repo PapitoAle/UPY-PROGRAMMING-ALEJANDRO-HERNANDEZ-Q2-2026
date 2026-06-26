@@ -1,1 +1,181 @@
+#INPUT
 
+Load users dictionary
+Load subjects tuple
+Load grades dictionary
+Set access_granted ← False
+Set current_user ← ""
+
+#PROCESS
+
+WHILE access_granted = False
+    INPUT username
+    INPUT password
+
+    IF username exists in users AND password is correct THEN
+        access_granted ← True
+        current_user ← username
+    ELSE
+        OUTPUT "Invalid username or password. Please try again."
+    ENDIF
+
+ENDWHILE
+
+current_name ← users[current_user].name
+current_role ← users[current_user].role
+
+#OUTPUT
+
+Display "Welcome" + current_name + current_role
+
+PROCESS
+
+IF current_role = "student" THEN
+
+    OUTPUT "Report Card"
+
+    Create empty set passed_subjects
+
+    FOR each subject IN subjects
+
+        grade ← grades[current_user][subject]
+
+        OUTPUT subject, grade
+
+        IF grade ≥ 8.0 THEN
+            Add subject to passed_subjects
+        ENDIF
+
+    ENDFOR
+
+    pending_subjects ← subjects − passed_subjects
+
+    OUTPUT passed_subjects
+    OUTPUT pending_subjects
+
+ELSE IF current_role = "teacher" THEN
+
+    OUTPUT "Student List"
+
+    FOR each user IN users
+
+        IF user role = "student" THEN
+            OUTPUT username and student name
+        ENDIF
+
+    ENDFOR
+
+    continue_grading ← True
+
+    WHILE continue_grading = True
+
+        INPUT student username
+
+        IF student username = "Exit" THEN
+
+            continue_grading ← False
+
+        ELSE
+
+            IF student exists in grades THEN
+
+                INPUT subject
+
+                IF subject exists in subjects THEN
+
+                    current_grade ← grades[student][subject]
+
+                    INPUT new_grade
+
+                    OUTPUT current_grade
+                    OUTPUT new_grade
+
+                    INPUT confirmation
+
+                    IF confirmation = "yes" THEN
+
+                        Update grades[student][subject] ← new_grade
+
+                        OUTPUT "Grade updated."
+
+                    ELSE
+
+                        OUTPUT "Change canceled."
+
+                    ENDIF
+
+                ELSE
+
+                    OUTPUT "Invalid subject."
+
+                ENDIF
+
+            ELSE
+
+                OUTPUT "Student not found."
+
+            ENDIF
+
+        ENDIF
+
+    ENDWHILE
+
+ELSE IF current_role = "coordinator" THEN
+
+    OUTPUT "Teacher List"
+
+    FOR each user IN users
+
+        IF user role = "teacher" THEN
+            OUTPUT username and teacher name
+        ENDIF
+
+    ENDFOR
+
+    OUTPUT "Subject List"
+
+    FOR each subject IN subjects
+
+        OUTPUT subject
+
+    ENDFOR
+
+    OUTPUT "Student List with Grades"
+
+    Create table header with:
+        Subject
+        Student names
+
+    OUTPUT header
+
+    FOR each subject IN subjects
+
+        Create empty row
+
+        Add subject to row
+
+        FOR each student IN grades
+
+            grade ← grades[student][subject]
+
+            grade_text ← grade
+
+            IF grade < 8.0 THEN
+                grade_text ← grade_text + " (F)"
+            ENDIF
+
+            Add grade_text to row
+
+        ENDFOR
+
+        OUTPUT row
+
+    ENDFOR
+
+ELSE
+
+    OUTPUT "Access type not recognized."
+
+ENDIF
+
+END
