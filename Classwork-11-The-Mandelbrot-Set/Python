@@ -1,8 +1,7 @@
 config = {}
 archivo = open("config.txt", 'r')
-
 for linea in archivo:
-    clave, valor = linea.strip().split
+    clave, valor = linea.strip().split("=")
     config[clave] = float(valor)
 archivo.close()
 
