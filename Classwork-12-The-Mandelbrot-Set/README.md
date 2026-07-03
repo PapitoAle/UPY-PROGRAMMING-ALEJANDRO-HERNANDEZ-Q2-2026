@@ -1,1 +1,1 @@
-
+Se declara que en este trabajo el uso de la IA estuvo presente como medio de apoyo para completar de manera exitosa lo solicitado en el trabajo, el contenido que corresponde al código de pyhton, el pseudocódigo (PPP) y el Flowchart que fueron elaborados por el autor. La IA fue usada exclusivamente para: Generar el pseudódigo en formato PPP y el Flowchart presentado dentro de la carpeta Classwork-12-The-Mandelbrot-Set.
