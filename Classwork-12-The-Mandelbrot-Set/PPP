@@ -1,1 +1,62 @@
+    # INPUT
 
+    CREATE empty dictionary config
+
+    OPEN "config.txt" FOR reading
+
+    FOR EACH line IN file DO
+        REMOVE line break
+        SPLIT line USING "="
+        STORE first part IN key
+        STORE second part IN value
+
+        IF value contains "." THEN
+            config[key] = REAL(value)
+        ELSE
+            config[key] = INTEGER(value)
+        ENDIF
+    ENDFOR
+
+    CLOSE file
+
+    OPEN "clase.csv" FOR reading
+    READ all lines INTO data
+    CLOSE file
+
+    # PROCESS
+
+    height = config["alto"]
+    width = config["ancho"]
+    max_iterations = config["max_iter"]
+
+    CREATE new HSV image WITH size (width, height)
+
+    REMOVE first element of data    // CSV header
+
+    FOR EACH record IN data DO
+
+        SPLIT record USING ","
+
+        row = INTEGER(first value)
+        column = INTEGER(second value)
+        iterations = INTEGER(third value)
+
+        IF iterations == max_iterations THEN
+            brightness = 40
+        ELSE
+            brightness = (iterations / max_iterations) * 255
+            CONVERT brightness TO INTEGER
+        ENDIF
+
+        SET pixel AT (column, row)
+        TO HSV(brightness, 255, 255)
+
+    ENDFOR
+
+    CONVERT HSV image TO RGB
+
+    SAVE image AS "mandelbrot-clase.png"
+
+    # OUTPUT
+
+    DISPLAY "DONE"
