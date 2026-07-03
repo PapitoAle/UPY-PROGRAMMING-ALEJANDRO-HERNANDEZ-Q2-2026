@@ -1,1 +1,54 @@
+INPUT
+CREATE empty dictionary config
+OPEN "config.txt" FOR reading
 
+FOR EACH line IN config.txt DO
+    REMOVE spaces and line break from line
+    SPLIT line USING "=" INTO key AND value
+    STORE key WITH value (converted to real number) IN config
+END FOR
+
+CLOSE config.txt
+
+    SET width ← INTEGER(config["ancho"])
+    SET height ← INTEGER(config["alto"])
+    SET maxIterations ← INTEGER(config["max_iter"])
+
+    OPEN "clase.csv" FOR writing
+    WRITE "fila,columna,iteraciones" TO output file
+
+    // PROCESS
+    FOR row ← 0 TO height - 1 DO
+
+        FOR column ← 0 TO width - 1 DO
+
+            SET real ← config["real_min"] +
+                        (column / width) ×
+                        (config["real_max"] - config["real_min"])
+
+            SET imag ← config["imag_min"] +
+                        (row / height) ×
+                        (config["imag_max"] - config["imag_min"])
+
+            SET c ← Complex(real, imag)
+
+            SET z ← Complex(0, 0)
+            SET iterations ← 0
+
+            WHILE Magnitude(z) ≤ 2 AND iterations < maxIterations DO
+                z ← z × z + c
+                iterations ← iterations + 1
+            END WHILE
+
+            WRITE row, column, iterations TO output file
+
+        END FOR
+
+    END FOR
+
+    CLOSE output file
+
+    // OUTPUT
+    DISPLAY "DONE"
+
+END
