@@ -1,0 +1,183 @@
+--------------------------------------------------------------------------------
+FUNCTION 1: draw_bars(numbers, selected)
+--------------------------------------------------------------------------------
+START FUNCTION draw_bars(numbers, selected)
+    # INPUT
+    // Recibe la lista 'numbers' y la tupla opcional 'selected'
+
+    # PROCESS
+    CLEAR screen
+    n = LENGTH of numbers
+    bar_width = 10.0 / n
+    
+    FOR i FROM 0 TO n - 1 DO
+        x = i * bar_width + bar_width / 2
+        IF i is IN selected THEN
+            bar_color = Color(255, 90, 90)
+        ELSE
+            bar_color = Color(70, 130, 220)
+        END IF
+        SET pen color TO bar_color
+        DRAW filled rectangle at (x - bar_width / 2, 0) with width (bar_width * 0.9) and height numbers[i]
+    END FOR
+
+    # OUTPUT
+    SHOW window with 500ms delay
+END FUNCTION
+
+--------------------------------------------------------------------------------
+FUNCTION 2: bubble_sort(numbers)
+--------------------------------------------------------------------------------
+START FUNCTION bubble_sort(numbers)
+    # INPUT
+    // Recibe la lista desordenada 'numbers'
+
+    # PROCESS
+    n = LENGTH of numbers
+    FOR sweep FROM 0 TO n - 1 DO
+        FOR pair FROM 0 TO n - 2 - sweep DO
+            IF numbers[pair] > numbers[pair + 1] THEN
+                SWAP numbers[pair] WITH numbers[pair + 1]
+            END IF
+        END FOR
+    END FOR
+
+    # OUTPUT
+    // La lista original 'numbers' queda modificada y ordenada in-place
+END FUNCTION
+
+--------------------------------------------------------------------------------
+FUNCTION 3: bubble_sort_animated(numbers)
+--------------------------------------------------------------------------------
+START FUNCTION bubble_sort_animated(numbers)
+    # INPUT
+    // Recibe la lista desordenada 'numbers'
+
+    # PROCESS
+    SET X scale from -0.1 to 10
+    SET Y scale from -0.5 to MAX(numbers) + 1
+    n = LENGTH of numbers
+    
+    FOR sweep FROM 0 TO n - 1 DO
+        swapped = FALSE
+        FOR pair FROM 0 TO n - 2 - sweep DO
+            CALL draw_bars(numbers, selected=(pair, pair + 1))
+            IF numbers[pair] > numbers[pair + 1] THEN
+                SWAP numbers[pair] WITH numbers[pair + 1]
+                swapped = TRUE
+            END IF
+            CALL draw_bars(numbers, selected=(pair, pair + 1))
+        END FOR
+        IF NOT swapped THEN
+            BREAK loop
+        END IF
+    END FOR
+
+    # OUTPUT
+    CALL draw_bars(numbers, empty selection)
+    SHOW final window
+END FUNCTION
+
+--------------------------------------------------------------------------------
+FUNCTION 4: insertion_sort(numbers)
+--------------------------------------------------------------------------------
+START FUNCTION insertion_sort(numbers)
+    # INPUT
+    // Recibe la lista desordenada 'numbers'
+
+    # PROCESS
+    n = LENGTH of numbers
+    FOR i FROM 1 TO n - 1 DO
+        key = numbers[i]
+        j = i - 1
+        WHILE j >= 0 AND numbers[j] > key DO
+            numbers[j + 1] = numbers[j]
+            j = j - 1
+        END WHILE
+        numbers[j + 1] = key
+    END FOR
+
+    # OUTPUT
+    // La lista original 'numbers' queda modificada y ordenada in-place
+END FUNCTION
+
+--------------------------------------------------------------------------------
+FUNCTION 5: insertion_sort_animated(numbers)
+--------------------------------------------------------------------------------
+START FUNCTION insertion_sort_animated(numbers)
+    # INPUT
+    // Recibe la lista desordenada 'numbers'
+
+    # PROCESS
+    SET X scale from -0.1 to 10
+    SET Y scale from -0.5 to MAX(numbers) + 1
+    n = LENGTH of numbers
+    
+    FOR i FROM 1 TO n - 1 DO
+        key = numbers[i]
+        j = i - 1
+        WHILE j >= 0 AND numbers[j] > key DO
+            CALL draw_bars(numbers, selected=(j + 1))
+            numbers[j + 1] = numbers[j]
+            j = j - 1
+            numbers[j + 1] = key
+            CALL draw_bars(numbers, selected=(j + 1))
+        END WHILE
+    END FOR
+
+    # OUTPUT
+    CALL draw_bars(numbers, empty selection)
+    SHOW final window
+END FUNCTION
+
+--------------------------------------------------------------------------------
+FUNCTION 6: selection_sort(numbers)
+--------------------------------------------------------------------------------
+START FUNCTION selection_sort(numbers)
+    # INPUT
+    // Recibe la lista desordenada 'numbers'
+
+    # PROCESS
+    n = LENGTH of numbers
+    FOR i FROM 0 TO n - 1 DO
+        min_index = i
+        FOR j FROM i + 1 TO n - 1 DO
+            IF numbers[j] < numbers[min_index] THEN
+                min_index = j
+            END IF
+        END FOR
+        SWAP numbers[i] WITH numbers[min_index]
+    END FOR
+
+    # OUTPUT
+    // La lista original 'numbers' queda modificada y ordenada in-place
+END FUNCTION
+
+--------------------------------------------------------------------------------
+FUNCTION 7: selection_sort_animated(numbers)
+--------------------------------------------------------------------------------
+START FUNCTION selection_sort_animated(numbers)
+    # INPUT
+    // Recibe la lista desordenada 'numbers'
+
+    # PROCESS
+    SET X scale from -0.1 to 10
+    SET Y scale from -0.5 to MAX(numbers) + 1
+    n = LENGTH of numbers
+    
+    FOR i FROM 0 TO n - 1 DO
+        min_index = i
+        FOR j FROM i + 1 TO n - 1 DO
+            CALL draw_bars(numbers, selected=(i, j))
+            IF numbers[j] < numbers[min_index] THEN
+                min_index = j
+            END IF
+        END FOR
+        SWAP numbers[i] WITH numbers[min_index]
+        CALL draw_bars(numbers, selected=(i, j))
+    END FOR
+
+    # OUTPUT
+    CALL draw_bars(numbers, empty selection)
+    SHOW final window
+END FUNCTION
