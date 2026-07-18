@@ -1,1 +1,1 @@
-
+Se declara que en este trabajo el uso de la IA estuvo presente como medio de apoyo para completar de manera exitosa lo solicitado en el trabajo. La IA fue usada exclusivamente para: solucionar errores del código, hacer que funcione y que este completo. De igual manera, los flowcharts que estan expuestos como imagenes dentro de la carpeta Classwork-15-bubble-Sort-Algorithms.
