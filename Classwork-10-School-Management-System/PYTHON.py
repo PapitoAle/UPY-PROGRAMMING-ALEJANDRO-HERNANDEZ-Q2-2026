@@ -3,29 +3,116 @@
 # ==========================================
 
 #INPUT
+# Required Structures
 users = {
-    'adardon': {'password': '1234', 'role': 'student', 'name': 'Arcadio Dardón'},
-    'irivas': {'password': '1234', 'role': 'student', 'name': 'Iván Rivas'},
-    'kpool': {'password': '1234', 'role': 'student', 'name': 'Keyra Pool'},
-    'ccalderon': {'password': '1234', 'role': 'student', 'name': 'Clarisa Calderón'},
-    'lescalante': {'password': '1234', 'role': 'student', 'name': 'Luis Escalante'},
-    'ahernandez': {'password': '1234', 'role': 'student', 'name': 'Alejandro Hernández'},
-    'jpedrozo': {'password': '1234', 'role': 'teacher', 'name': 'Jorge Pedrozo'},
-    'dgamboa': {'password': '1234', 'role': 'coordinator', 'name': 'Didier Gamboa'}
+    'jperez':  {
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Juan Pérez'
+    },
+    'dromo':  {
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Daniela Romo'
+    },
+    'mjuarez':  {
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Mauricio Juárez'
+    },
+    'mlopez':  {
+        'password': '1234',
+        'rol': 'student',
+        'name': 'María López'
+    },
+    'euc':  {
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Ernesto Uc'
+    },
+    'cbalam':  {
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Carlos Balam'
+    },
+    'jpedrozo':  {
+        'password': '1234',
+        'rol': 'professor',
+        'name': 'Jorge Pedrozo'
+    },
+    'dgamboa':  {
+        'password': '1234',
+        'rol': 'coordinator',
+        'name': 'Didier Gamboa'
+    }
 }
-
-subjects = ('Prob&Stats', 'Comp&Serv Arch', 'Tutoring', 'DifCalculus', 'Programming', 'Dicrete Math', 'SocialE Skills', 'English')
-
-grades = {
-    'adardon': {'Prob&Stats': 8.0, 'Comp&Serv Arch': 7.0, 'Tutoring': 9.0, 'DifCalculus': 8.0, 'Programming': 8.5, 'Dicrete Math': 9.5, 'SocialE Skills': 10.0, 'English': 9.5},
-    'irivas': {'Prob&Stats': 8.5, 'Comp&Serv Arch': 8.5, 'Tutoring': 8.0, 'DifCalculus': 8.0, 'Programming': 9.5, 'Dicrete Math': 8.0, 'SocialE Skills': 8.5, 'English': 8.5},
-    'kpool': {'Prob&Stats': 7.5, 'Comp&Serv Arch': 8.0, 'Tutoring': 9.5, 'DifCalculus': 9.0, 'Programming': 10.0, 'Dicrete Math': 9.0, 'SocialE Skills': 9.0, 'English': 8.0},
-    'ccalderon': {'Prob&Stats': 8.0, 'Comp&Serv Arch': 9.0, 'Tutoring': 9.5, 'DifCalculus': 8.0, 'Programming': 9.0, 'Dicrete Math': 8.5, 'SocialE Skills': 8.0, 'English': 9.5},
-    'lescalante': {'Prob&Stats': 8.5, 'Comp&Serv Arch': 9.0, 'Tutoring': 8.0, 'DifCalculus': 8.5, 'Programming': 10.0, 'Dicrete Math': 9.5, 'SocialE Skills': 8.0, 'English': 7.5},
-    'ahernandez': {'Prob&Stats': 8.0, 'Comp&Serv Arch': 10.0, 'Tutoring': 10.0, 'DifCalculus': 8.0, 'Programming': 8.5, 'Dicrete Math': 9.0, 'SocialE Skills': 10.0, 'English': 9.5}
-}
-
-# PROCESS
+ 
+subjects = (
+    "Discrete Mathematics",
+    "Programming",
+    "English II",
+    "Differential Calculus",
+    "Probability and Statistics",
+    "Computer and Server Architecture",
+    "Socio-Emotional Skills and Conflict Management"
+)
+ 
+notes = {
+    'jperez': {
+        'Discrete Mathematics': 8.5,
+        'Programming': 9.2,
+        'English II': 9.0,
+        'Differential Calculus': 7.8,
+        'Probability and Statistics': 8.3,
+        'Computer and Server Architecture': 6.8,
+        'Socio-Emotional Skills and Conflict Management': 9.5
+    },
+    'dromo': {
+        'Discrete Mathematics': 9.0,
+        'Programming': 6.7,
+        'English II': 9.4,
+        'Differential Calculus': 6.2,
+        'Probability and Statistics': 9.1,
+        'Computer and Server Architecture': 6.5,
+        'Socio-Emotional Skills and Conflict Management': 9.8
+    },
+    'mjuarez': {
+        'Discrete Mathematics': 7.5,
+        'Programming': 8.0,
+        'English II': 8.5,
+        'Differential Calculus': 7.0,
+        'Probability and Statistics': 7.8,
+        'Computer and Server Architecture': 6.2,
+        'Socio-Emotional Skills and Conflict Management': 8.9
+    },
+    'mlopez': {
+        'Discrete Mathematics': 9.5,
+        'Programming': 9.8,
+        'English II': 9.2,
+        'Differential Calculus': 9.0,
+        'Probability and Statistics': 9.6,
+        'Computer and Server Architecture': 9.4,
+        'Socio-Emotional Skills and Conflict Management': 10.0
+    },
+    'euc': {
+        'Discrete Mathematics': 8.2,
+        'Programming': 6.9,
+        'English II': 8.8,
+        'Differential Calculus': 6.0,
+        'Probability and Statistics': 6.4,
+        'Computer and Server Architecture': 8.1,
+        'Socio-Emotional Skills and Conflict Management': 9.0
+    },
+    'cbalam': {
+        'Discrete Mathematics': 8.8,
+        'Programming': 9.0,
+        'English II': 8.5,
+        'Differential Calculus': 6.6,
+        'Probability and Statistics': 8.9,
+        'Computer and Server Architecture': 8.7,
+        'Socio-Emotional Skills and Conflict Management': 9.2
+    }
+}# PROCESS
 access_granted = False
 current_user = ''
 
