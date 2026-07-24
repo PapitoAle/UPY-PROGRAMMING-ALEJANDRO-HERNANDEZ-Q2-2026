@@ -9,7 +9,7 @@ for linea in archivo:
 archivo.close()
 
 #print(config)
-with open("clase.csv", 'r') as data:
+with open("mandelbrot.csv", 'r') as data:
     datos = data.readlines() #
 
 alto, ancho, max_iter =config["alto"], config["ancho"], config["max_iter"]
