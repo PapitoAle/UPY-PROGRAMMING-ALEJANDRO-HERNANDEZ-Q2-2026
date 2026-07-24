@@ -3,232 +3,299 @@
 # ==========================================
 
 #INPUT
-# Required Structures
+#Required Structures
 users = {
-    'jperez':  {
-        'password': '1234',
-        'rol': 'student',
-        'name': 'Juan Pérez'
-    },
-    'dromo':  {
-        'password': '1234',
-        'rol': 'student',
-        'name': 'Daniela Romo'
-    },
-    'mjuarez':  {
-        'password': '1234',
-        'rol': 'student',
-        'name': 'Mauricio Juárez'
-    },
-    'mlopez':  {
-        'password': '1234',
-        'rol': 'student',
-        'name': 'María López'
-    },
-    'euc':  {
-        'password': '1234',
-        'rol': 'student',
-        'name': 'Ernesto Uc'
-    },
-    'cbalam':  {
-        'password': '1234',
-        'rol': 'student',
-        'name': 'Carlos Balam'
-    },
-    'jpedrozo':  {
-        'password': '1234',
-        'rol': 'professor',
-        'name': 'Jorge Pedrozo'
-    },
-    'dgamboa':  {
-        'password': '1234',
-        'rol': 'coordinator',
-        'name': 'Didier Gamboa'
-    }
+    'jperez':	{
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Juan Pérez'
+    },
+    'dromo':	{
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Daniela Romo'
+    },
+    'mjuarez':	{
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Mauricio Juárez'
+    },
+    'mlopez':	{
+        'password': '1234',
+        'rol': 'student',
+        'name': 'María López'
+    },
+    'euc':	{
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Ernesto Uc'
+    },
+    'cbalam':	{
+        'password': '1234',
+        'rol': 'student',
+        'name': 'Carlos Balam'
+    },
+    'jpedrozo':	{
+        'password': '1234',
+        'rol': 'professor',
+        'name': 'Jorge Pedrozo'
+    },
+    'dgamboa':	{
+        'password': '1234',
+        'rol': 'coordinator',
+        'name': 'Didier Gamboa'
+    }
 }
- 
 subjects = (
-    "Discrete Mathematics",
-    "Programming",
-    "English II",
-    "Differential Calculus",
-    "Probability and Statistics",
-    "Computer and Server Architecture",
-    "Socio-Emotional Skills and Conflict Management"
+    "Discrete Mathematics",
+    "Programming",
+    "English II",
+    "Differential Calculus",
+    "Probability and Statistics",
+    "Computer and Server Architecture",
+    "Socio-Emotional Skills and Conflict Management"
 )
- 
 notes = {
-    'jperez': {
-        'Discrete Mathematics': 8.5,
-        'Programming': 9.2,
-        'English II': 9.0,
-        'Differential Calculus': 7.8,
-        'Probability and Statistics': 8.3,
-        'Computer and Server Architecture': 6.8,
-        'Socio-Emotional Skills and Conflict Management': 9.5
-    },
-    'dromo': {
-        'Discrete Mathematics': 9.0,
-        'Programming': 6.7,
-        'English II': 9.4,
-        'Differential Calculus': 6.2,
-        'Probability and Statistics': 9.1,
-        'Computer and Server Architecture': 6.5,
-        'Socio-Emotional Skills and Conflict Management': 9.8
-    },
-    'mjuarez': {
-        'Discrete Mathematics': 7.5,
-        'Programming': 8.0,
-        'English II': 8.5,
-        'Differential Calculus': 7.0,
-        'Probability and Statistics': 7.8,
-        'Computer and Server Architecture': 6.2,
-        'Socio-Emotional Skills and Conflict Management': 8.9
-    },
-    'mlopez': {
-        'Discrete Mathematics': 9.5,
-        'Programming': 9.8,
-        'English II': 9.2,
-        'Differential Calculus': 9.0,
-        'Probability and Statistics': 9.6,
-        'Computer and Server Architecture': 9.4,
-        'Socio-Emotional Skills and Conflict Management': 10.0
-    },
-    'euc': {
-        'Discrete Mathematics': 8.2,
-        'Programming': 6.9,
-        'English II': 8.8,
-        'Differential Calculus': 6.0,
-        'Probability and Statistics': 6.4,
-        'Computer and Server Architecture': 8.1,
-        'Socio-Emotional Skills and Conflict Management': 9.0
-    },
-    'cbalam': {
-        'Discrete Mathematics': 8.8,
-        'Programming': 9.0,
-        'English II': 8.5,
-        'Differential Calculus': 6.6,
-        'Probability and Statistics': 8.9,
-        'Computer and Server Architecture': 8.7,
-        'Socio-Emotional Skills and Conflict Management': 9.2
-    }
-}# PROCESS
-access_granted = False
-current_user = ''
+    'jperez': {
+        'Discrete Mathematics': 8.5,
+        'Programming': 9.2,
+        'English II': 9.0,
+        'Differential Calculus': 7.8,
+        'Probability and Statistics': 8.3,
+        'Computer and Server Architecture': 6.8,
+        'Socio-Emotional Skills and Conflict Management': 9.5
+    },
+    'dromo': {
+        'Discrete Mathematics': 9.0,
+        'Programming': 6.7,
+        'English II': 9.4,
+        'Differential Calculus': 6.2,
+        'Probability and Statistics': 9.1,
+        'Computer and Server Architecture': 6.5,
+        'Socio-Emotional Skills and Conflict Management': 9.8
+    },
+    'mjuarez': {
+        'Discrete Mathematics': 7.5,
+        'Programming': 8.0,
+        'English II': 8.5,
+        'Differential Calculus': 7.0,
+        'Probability and Statistics': 7.8,
+        'Computer and Server Architecture': 6.2,
+        'Socio-Emotional Skills and Conflict Management': 8.9
+    },
+    'mlopez': {
+        'Discrete Mathematics': 9.5,
+        'Programming': 9.8,
+        'English II': 9.2,
+        'Differential Calculus': 9.0,
+        'Probability and Statistics': 9.6,
+        'Computer and Server Architecture': 9.4,
+        'Socio-Emotional Skills and Conflict Management': 10.0
+    },
+    'euc': {
+        'Discrete Mathematics': 8.2,
+        'Programming': 6.9,
+        'English II': 8.8,
+        'Differential Calculus': 6.0,
+        'Probability and Statistics': 6.4,
+        'Computer and Server Architecture': 8.1,
+        'Socio-Emotional Skills and Conflict Management': 9.0
+    },
+    'cbalam': {
+        'Discrete Mathematics': 8.8,
+        'Programming': 9.0,
+        'English II': 8.5,
+        'Differential Calculus': 6.6,
+        'Probability and Statistics': 8.9,
+        'Computer and Server Architecture': 8.7,
+        'Socio-Emotional Skills and Conflict Management': 9.2
+    }
+}
+while True:
 
-while access_granted == False:
-    username = input('Username: ')
-    password = input('Password: ')
+    logged = False
 
-    if username in users and users[username]['password'] == password:
-        access_granted = True
-        current_user = username
-    else:
-        # OUTPUT
-        print('Invalid username or password. Please try again.\n')
+    while logged == False:
 
-current_name = users[current_user]['name']
-current_role = users[current_user]['role']
+        username = input("User: ")
 
-# OUTPUT
-print('\nWelcome, ' + current_name + ' (' + current_role.capitalize() + ')')
-print('=' * 40)
+        if username == "exit":
+            exit()
 
-# PROCESS
-if current_role == 'student':
+        password = input("Password: ")
 
-    print('Report Card for ' + current_name)
-    print('-' * 40)
+        if password == "exit":
+            exit()
 
-    passed_subjects = set()
+        if username in users:
 
-    for subject in subjects:
-        grade = grades[current_user][subject]
-        print(subject + ': ' + str(grade))
+            if users[username]["password"] == password:
 
-        if grade >= 8.0:
-            passed_subjects.add(subject)
+                logged = True
 
-    pending_subjects = set(subjects) - passed_subjects
+                print()
+                print(f"Welcome {users[username]['name']}")
+                print(f"Role: {users[username]['rol']}")
 
-    print('\nPassed subjects: ' + str(passed_subjects))
-    print('Pending subjects: ' + str(pending_subjects))
-
-elif current_role == 'teacher':
-
-    print('Student List:')
-    print('-' * 40)
-
-    for username in users:
-        if users[username]['role'] == 'student':
-            print(username.ljust(10) + ' | ' + users[username]['name'])
-
-    continue_grading = True
-
-    while continue_grading == True:
-        print()
-
-        student = input('Student username (or type "Exit" to quit): ')
-
-        if student == 'Exit':
-            continue_grading = False
-        else:
-            if student in grades:
-
-                subject = input('Subject: ')
-
-                if subject in subjects:
-
-                    current_grade = grades[student][subject]
-                    new_grade = float(input('New grade: '))
-
-                    print('Current grade: ' + str(current_grade))
-                    print('New grade: ' + str(new_grade))
-                    confirmation = input('Confirm change? (yes/no): ')
-
-                    if confirmation == 'yes':
-                        grades[student][subject] = new_grade
-                        print('Grade updated.')
-                    else:
-                        print('Change canceled.')
-                else:
-                    print('Invalid subject.')
             else:
-                print('Student not found.')
+                print()
+                print("Incorrect password.")
 
-elif current_role == 'coordinator':
+        else:
+            print()
+            print("User not found.")
 
-    print('Teacher List:')
-    print('-' * 40)
+    role = users[username]["rol"]
 
-    for username in users:
-        if users[username]['role'] == 'teacher':
-            print(username.ljust(10) + ' | ' + users[username]['name'])
+    if role == "student":
 
-    print('\nSubject List:')
-    print('-' * 40)
+        print()
+        print("School Report")
+        print(f"Student: {users[username]['name']}")
 
-    for subject in subjects:
-        print(subject)
+        approved = set()
 
-    print('\nStudent List with Grades:')
-    print('-' * 90)
+        for subject in subjects:
 
-    header = 'Subject'.ljust(15)
-    for username in grades:
-        header = header + users[username]['name'].ljust(20)
-    print(header)
-    print('-' * 90)
+            print(f"{subject}: {notes[username][subject]}")
 
-    for subject in subjects:
-        row = subject.ljust(15)
-        for username in grades:
-            grade = grades[username][subject]
-            grade_text = str(grade)
-            if grade < 8.0:
-                grade_text = grade_text + ' (F)'
-            row = row + grade_text.ljust(20)
-        print(row)
+            if notes[username][subject] >= 8:
+                approved.add(subject)
 
-else:
-    print('Access type not recognized.')
+        pending = set(subjects) - approved
+
+        print()
+        print(f"Approved Subjects: {approved}")
+        print(f"Pending Subjects: {pending}")
+
+        print()
+        option = input("exit / continue: ")
+
+        if option == "exit":
+            exit()
+        else:
+            continue
+
+
+    elif role == "professor":
+
+        print()
+        print("Students")
+
+        for user in users:
+            if users[user]["rol"] == "student":
+                print(f"{user}: {users[user]['name']}")
+
+        student = input("Student username: ")
+
+        if student == "exit":
+            exit()
+
+        while student not in notes:
+            print("Student not found.")
+            student = input("Student username: ")
+
+            if student == "exit":
+                exit()
+
+        print()
+        print("Subjects")
+
+        for subject in subjects:
+            print(subject)
+
+        subject = input("Subject: ")
+
+        if subject == "exit":
+            exit()
+
+        while subject not in subjects:
+
+            print("Invalid subject.")
+            subject = input("Subject: ")
+
+            if subject == "exit":
+                exit()
+
+        confirm = "no"
+
+        while confirm != "yes":
+
+            grade = input("New grade: ")
+
+            if grade == "exit":
+                exit()
+
+            grade = float(grade)
+
+            while grade < 0 or grade > 10:
+
+                print("Grade must be between 0 and 10.")
+                grade = input("New grade: ")
+
+                if grade == "exit":
+                    exit()
+
+                grade = float(grade)
+
+            old = notes[student][subject]
+
+            print()
+            print(f"{subject}: {old} ==> {grade}")
+
+            confirm = input("Do you confirm? (yes/no): ")
+
+            if confirm == "exit":
+                exit()
+
+            if confirm == "yes":
+                notes[student][subject] = grade
+                print("Grade updated.")
+            else:
+                print("Update cancelled.")
+
+        print()
+        option = input("exit / continue: ")
+
+        if option == "exit":
+            exit()
+        else:
+            continue
+
+
+    elif role == "coordinator":
+
+        print()
+        print("Coordinator Menu")
+
+        print()
+        print("Teachers:")
+
+        for user in users:
+            if users[user]["rol"] == "professor":
+                print(f"{user}: {users[user]['name']}")
+
+        print()
+        print("Subjects:")
+
+        for subject in subjects:
+            print(subject)
+
+        print()
+        print("Students Grades:")
+
+        for student in notes:
+
+            print()
+            print(f"{users[student]['name']} ({student})")
+
+            for subject in subjects:
+                print(f"{subject}: {notes[student][subject]}")
+
+        print()
+        option = input("exit / continue: ")
+
+        if option == "exit":
+            exit()
+        else:
+            continue
