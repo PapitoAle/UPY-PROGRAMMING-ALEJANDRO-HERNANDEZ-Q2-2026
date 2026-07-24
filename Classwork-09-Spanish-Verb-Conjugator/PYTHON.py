@@ -12,7 +12,7 @@ ending = {
     'ir': ['o', 'es', 'e', 'imos', 'is', 'en']
 }
 
-#Get5 stem (verb minus last 3 letters) and ending (last 2 letters)
+#Get stem (verb minus last 3 letters) and ending (last 2 letters)
 stem = verb[:-2]
 ending = verb[-2:]
 
