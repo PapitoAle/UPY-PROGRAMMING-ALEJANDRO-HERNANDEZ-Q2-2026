@@ -7,7 +7,7 @@ archivo.close()
 
 #Parsear los enteros
 ancho, alto, max_iter = int(config["ancho"]), int(config["alto"]), int(config["max_iter"])
-salida = open("clase.csv", 'w')
+salida = open("mandelbrot.csv", 'w')
 salida.write("fila, columna,iteraciones\n")
 for fila in range(alto):
     for columna in range(ancho):
